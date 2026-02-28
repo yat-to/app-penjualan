@@ -3,23 +3,7 @@ import React, { useState } from 'react';
 import * as LucideIcons from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-const arr = [
-    { title: 'Beranda', url: '/beranda', icon: 'Home' },
-    { title: 'Berita', url: '/berita', icon: 'Newspaper' },
-    { title: 'Profil', url: '', icon: 'Building2',
-        children: [
-            { title: 'Data Pegawai', url: '/dataPegawai' },
-            { title: 'Profil Dinas', url: '/profil' },
-            { title: 'Visi & Misi', url: '/visiMisi' },
-        ]
-    },
-    { title: 'Galeri', url: '', icon: 'BookImage',
-        children: [
-            { title: 'Foto', url: '/foto' },
-            { title: 'Video', url: '/video' },
-        ]
-    },
-]
+import { menu } from '@/data/menu';
 
 const ListMenu = ({ item }) => {
     const router = useRouter(); // Pastikan router dipanggil di sini juga
@@ -86,7 +70,7 @@ function Sidebar() {
                 {/* Navigation Links */}
                 <nav className="flex-1 px-4 space-y-1">
                     {
-                        arr.map((item) => (
+                        menu.map((item) => (
                             <ListMenu key={item.title} item={item} />
                         ))
                     }

@@ -14,7 +14,7 @@ export default function LoginPage() {
         // Simulasi proses login selama 1 detik
         setTimeout(() => {
             console.log("Login berhasil");
-            router.push("/beranda");
+            router.push("/dashboard");
         }, 1000);
     };
 
