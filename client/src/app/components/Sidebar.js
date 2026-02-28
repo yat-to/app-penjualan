@@ -63,7 +63,7 @@ function Sidebar() {
                         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
                             A
                         </div>
-                        <span className="text-xl font-bold text-gray-800">App Name</span>
+                        <span className="text-xl font-bold text-gray-800">App Penjualan</span>
                     </div>
                 </div>
 
