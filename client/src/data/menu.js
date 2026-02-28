@@ -1,45 +1,45 @@
 export const menu = [
     { id: '1', title: 'Dashboard', url: '/dashboard', icon: 'Home' },
+
     {
-        id: '2', title: 'Transaksi', url: '', icon: 'Building2',
+        id: '2',
+        title: 'Penjualan',
+        url: '',
+        icon: 'ShoppingCart',
         children: [
-            { title: 'Penjualan', url: '/penjualan' },
+            { title: 'Transaksi Baru', url: '/penjualan' },
             { title: 'Riwayat Penjualan', url: '/riwayatPenjualan' },
-            { title: 'Return Penjualan', url: '/returnPenjualan' },
         ]
     },
+
     {
-        id: '3', title: 'Pembelian (Restock)', url: '', icon: 'Building2',
+        id: '3',
+        title: 'Stok Barang',
+        url: '',
+        icon: 'Boxes',
         children: [
-            { title: 'Pembalian Barang', url: '/pembalianBarang' },
-            { title: 'Riwayat Pembelian', url: '/riwayatPembelian' },
-        ]
-    },
-    {
-        id: '4', title: 'Stok', url: '', icon: 'BookImage',
-        children: [
-            { title: 'Mutasi Stok', url: '/mutasiStok' },
+            { title: 'Data Produk', url: '/produk' },
+            { title: 'Tambah Stok (Restock)', url: '/restock' },
             { title: 'Penyesuaian Stok', url: '/penyesuaianStok' },
-            { title: 'Minimum Stok Alert', url: '/minimumStokAlert' },
         ]
     },
+
     {
-        id: '5', title: 'Laporan', url: '', icon: 'BookImage',
+        id: '4',
+        title: 'Laporan',
+        url: '',
+        icon: 'BarChart3',
         children: [
             { title: 'Laporan Penjualan', url: '/lapPenjualan' },
             { title: 'Laporan Laba Rugi', url: '/lapLaba' },
-            { title: 'Laporan Stock', url: '/lapStock' },
-            { title: 'Laporan Terlaris', url: '/lapTerlaris' },
-            { title: 'Laporan Pembelian', url: '/lapPembelian' },
+            { title: 'Produk Terlaris', url: '/lapTerlaris' },
         ]
     },
     {
-        id: '6', title: 'Master Data', url: '', icon: 'BookImage',
+        id: '5', title: 'Master Data', url: '', icon: 'BookImage',
         children: [
             { title: 'Kategori', url: '/kategori' },
             { title: 'Brand', url: '/brand' },
-            { title: 'Produk', url: '/produk' },
-            { title: 'Varian Produk', url: '/varianProduk' },
         ]
     },
 ];
