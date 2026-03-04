@@ -63,26 +63,18 @@ export const produkTerlarisDummy = [
 export default function Page() {
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Statistik Pengguna</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Penjualan Hari Ini</h3>
                     <p className="text-3xl font-bold text-blue-600 mt-2">1,240</p>
-                    <p className="text-sm text-gray-500 mt-1">+5% dari bulan lalu</p>
                 </div>
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Total Pendapatan</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Transaksi Hari Ini</h3>
                     <p className="text-3xl font-bold text-green-600 mt-2">Rp 15.200.000</p>
-                    <p className="text-sm text-gray-500 mt-1">Target tercapai 80%</p>
                 </div>
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Statistik Pengguna</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Total Produk</h3>
                     <p className="text-3xl font-bold text-blue-600 mt-2">1,240</p>
-                    <p className="text-sm text-gray-500 mt-1">+5% dari bulan lalu</p>
-                </div>
-                <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Total Pendapatan</h3>
-                    <p className="text-3xl font-bold text-green-600 mt-2">Rp 15.200.000</p>
-                    <p className="text-sm text-gray-500 mt-1">Target tercapai 80%</p>
                 </div>
             </div>
 
