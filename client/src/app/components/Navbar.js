@@ -22,10 +22,9 @@ export default function Navbar({ onMenuClick }) {
 
     return (
         <nav className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 sticky top-0 z-30">
-
             <button
                 onClick={onMenuClick}
-                className="p-2 mr-2 text-gray-600 hover:bg-gray-100 rounded-lg md:hidden transition-colors"
+                className="p-2 mr-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
             >
                 <Menu size={24} />
             </button>

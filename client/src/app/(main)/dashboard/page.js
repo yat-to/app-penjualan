@@ -80,8 +80,8 @@ export default function Page() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Transaksi Terbaru</h3>
-                    <div className="overflow-x-auto mt-2">
+                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Transaksi Terbaru</h3>
+                    <div className="overflow-x-auto mt-4">
                         <table className="w-full text-left border-collapse">
                             <thead className="bg-gray-50 border-b border-gray-200">
                                 <tr>
@@ -112,9 +112,8 @@ export default function Page() {
                     </div>
                 </div>
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Produk Terlaris</h3>
-
-                    <div className="space-y-5 mt-2">
+                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Produk Terlaris</h3>
+                    <div className="space-y-5 mt-4">
                         {produkTerlarisDummy.map((data, index) => (
                             <div key={data.id} className="group">
                                 <div className="flex justify-between items-start mb-2">
