@@ -80,10 +80,6 @@ function Sidebar({ isOpen, onClose }) {
                     </div>
                 </div>
 
-                <button onClick={onClose} className='md:hidden p-1 text-gray-500 hover:bg-gray-100 rounded'>
-                    <X size={20} />
-                </button>
-
                 {/* Navigation Links */}
                 <nav className="flex-1 px-4 space-y-1">
                     {

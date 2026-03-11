@@ -1,33 +1,49 @@
 import React from 'react'
+import SalesChart from '@/app/components/salesChart';
+
+const dataGrafikDariDatabase = [
+    { tanggal: "Jan", total: 4500000 },
+    { tanggal: "Feb", total: 5200000 },
+    { tanggal: "Mar", total: 4800000 },
+    { tanggal: "Apr", total: 6100000 },
+    { tanggal: "Mei", total: 5900000 },
+    { tanggal: "Jun", total: 7200000 },
+    { tanggal: "Jul", total: 8500000 },
+    { tanggal: "Agu", total: 7800000 },
+    { tanggal: "Sep", total: 9100000 },
+    { tanggal: "Okt", total: 8200000 },
+    { tanggal: "Nov", total: 9500000 },
+    { tanggal: "Des", total: 11000000 },
+];
 
 const transaksi = [
     {
-        id: 1,
-        tanggal: "2026-02-28",
-        nama_pelanggan: "Budi Santoso",
-        hp_pelanggan: "081234567890",
-        qty: "3",
-        total: 30000
+        product: "Kaos Polos Hitam",
+        order_id: "ORD-001",
+        date: "2026-02-28",
+        customer_name: "Budi Santoso",
+        status: "Completed",
+        amount: 30000
     },
     {
-        id: 2,
-        tanggal: "2026-02-28",
-        nama_pelanggan: "Andi Wijaya",
-        hp_pelanggan: "082196412278",
-        qty: "5",
-        total: 25000
+        product: "Kaos Polos Putih",
+        order_id: "ORD-002",
+        date: "2026-02-28",
+        customer_name: "Andi Wijaya",
+        status: "Pending",
+        amount: 25000
     },
     {
-        id: 3,
-        tanggal: "2026-02-28",
-        nama_pelanggan: "Citra Dewi",
-        hp_pelanggan: "085234567890",
-        qty: "2",
-        total: 20000
+        product: "Hoodie Basic Abu",
+        order_id: "ORD-003",
+        date: "2026-02-28",
+        customer_name: "Citra Dewi",
+        status: "Completed",
+        amount: 20000
     }
 ];
 
-export const produkTerlarisDummy = [
+const produkTerlarisDummy = [
     {
         id: 1,
         nama_barang: "Overgrip Li-Ning GP1000",
@@ -65,54 +81,29 @@ export default function Page() {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Penjualan Hari Ini</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Today Sales</h3>
                     <p className="text-3xl font-bold text-blue-600 mt-2">1,240</p>
                 </div>
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Transaksi Hari Ini</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Transactions</h3>
                     <p className="text-3xl font-bold text-green-600 mt-2">Rp 15.200.000</p>
                 </div>
                 <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700">Total Produk</h3>
+                    <h3 className="text-lg font-semibold text-gray-700">Total Products</h3>
                     <p className="text-3xl font-bold text-blue-600 mt-2">1,240</p>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Transaksi Terbaru</h3>
-                    <div className="overflow-x-auto mt-4">
-                        <table className="w-full text-left border-collapse">
-                            <thead className="bg-gray-50 border-b border-gray-200">
-                                <tr>
-                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">NAMA</th>
-                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">QTY</th>
-                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">TOTAL</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-200">
-                                {transaksi.map((data) => (
-                                    <tr key={data.id} className="hover:bg-blue-50/30 transition-colors group">
-                                        <td className="px-6 py-4">
-                                            <div className="flex flex-col">
-                                                <span className="text-sm font-bold text-gray-700">{data.nama_pelanggan}</span>
-                                                <span className="text-[11px] font-mono text-gray-500">{data.hp_pelanggan}</span>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <span className="text-sm text-gray-700">{data.qty}</span>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <span className="text-sm text-gray-700">Rp{data.total.toLocaleString('id-ID')}</span>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mt-6">
+                <div className="md:col-span-8 space-y-4">
+                    <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                        <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Sale Graph</h3>
+                        <SalesChart data={dataGrafikDariDatabase} />
                     </div>
                 </div>
-                <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Produk Terlaris</h3>
+
+                <div className="p-6 md:col-span-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Best Sellers</h3>
                     <div className="space-y-5 mt-4">
                         {produkTerlarisDummy.map((data, index) => (
                             <div key={data.id} className="group">
@@ -128,13 +119,64 @@ export default function Page() {
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <p className="text-sm text-gray-700">
-                                            Rp{data.total_belanja.toLocaleString('id-ID')}
-                                        </p>
+                                        <p className="text-sm font-bold text-blue-600">Rp{data.total_belanja.toLocaleString('id-ID')}</p>
                                     </div>
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mt-6">
+                <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <h3 className="text-lg font-semibold text-gray-700 pb-3 border-b border-gray-200">Transaksi Terbaru</h3>
+                    <div className="overflow-x-auto mt-4">
+                        <table className="w-full text-left border-collapse">
+                            <thead className="bg-gray-50 border-b border-gray-200">
+                                <tr>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Product</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Order ID</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Date</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Customer Name</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Status</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-200">
+                                {transaksi.map((data) => (
+                                    <tr key={data.id} className="hover:bg-blue-50/30 transition-colors group">
+                                        <td className="px-6 py-4 text-center">
+                                            <span className="text-sm font-bold text-gray-700">{data.product}</span>
+                                        </td>
+                                        <td className="px-6 py-4 text-center">
+                                            <span className="text-sm text-gray-700">{data.order_id}</span>
+                                        </td>
+                                        <td className="px-6 py-4 text-center">
+                                            <span className="text-sm text-gray-700">{data.date}</span>
+                                        </td>
+                                        <td className="px-6 py-4 text-center">
+                                            <span className="text-sm text-gray-700">{data.customer_name}</span>
+                                        </td>
+                                        <td className="px-6 py-4 text-center">
+                                            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold 
+                                                ${data.status === 'Completed' ? 'bg-green-100 text-green-700' : 
+                                                data.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
+                                                
+                                                <span className={`w-2 h-2 rounded-full 
+                                                    ${data.status === 'Completed' ? 'bg-green-500' : 
+                                                    data.status === 'Pending' ? 'bg-yellow-500' : 'bg-red-500'}`}>
+                                                </span>
+                                                {data.status}
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 text-center">
+                                            <span className="text-sm text-gray-700">Rp{data.amount.toLocaleString('id-ID')}</span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
