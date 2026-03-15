@@ -3,11 +3,12 @@ export const produk = [
         id: 1,
         kategori_id: 1,
         brand_id: 1,
-        nama: "Grip Handuk Yonex AC402",
-        harga_beli: 12000,
-        harga_jual: 18000,
+        uraian_kategori: "Sepatu Yonex AC402",
+        harga_jual: 450000,
         stok: 25,
-        minimum_stok: 5
+        penjualan: 5,
+        keterangan: "Sepatu badminton Yonex AC402 dengan desain ringan dan sol anti-slip, nyaman digunakan untuk latihan maupun pertandingan.",
+        foto: "https://siopen.balangankab.go.id/storage/merchant/products/2024/08/22/2846c808794cb006f8ca257d33acfe4c.jpg"
     },
     {
         id: 2,

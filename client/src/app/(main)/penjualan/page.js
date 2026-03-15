@@ -47,7 +47,7 @@ export default function Page() {
     };
 
     return (
-        <div className="space-y-6 pb-10 bg-gray-50 min-h-screen">
+        <div className="space-y-6 pb-10 min-h-screen">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-800">Riwayat Penjualan</h1>

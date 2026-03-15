@@ -22,7 +22,7 @@ const transaksi = [
         order_id: "ORD-001",
         date: "2026-02-28",
         customer_name: "Budi Santoso",
-        status: "Completed",
+        payment: "Cash",
         amount: 30000
     },
     {
@@ -30,7 +30,7 @@ const transaksi = [
         order_id: "ORD-002",
         date: "2026-02-28",
         customer_name: "Andi Wijaya",
-        status: "Pending",
+        payment: "Transfer",
         amount: 25000
     },
     {
@@ -38,7 +38,7 @@ const transaksi = [
         order_id: "ORD-003",
         date: "2026-02-28",
         customer_name: "Citra Dewi",
-        status: "Completed",
+        payment: "Transfer",
         amount: 20000
     }
 ];
@@ -139,7 +139,7 @@ export default function Page() {
                                     <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Order ID</th>
                                     <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Date</th>
                                     <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Customer Name</th>
-                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Status</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Payments</th>
                                     <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Amount</th>
                                 </tr>
                             </thead>
@@ -160,14 +160,12 @@ export default function Page() {
                                         </td>
                                         <td className="px-6 py-4 text-center">
                                             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold 
-                                                ${data.status === 'Completed' ? 'bg-green-100 text-green-700' : 
-                                                data.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
+                                                ${data.payment === 'Cash' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
                                                 
                                                 <span className={`w-2 h-2 rounded-full 
-                                                    ${data.status === 'Completed' ? 'bg-green-500' : 
-                                                    data.status === 'Pending' ? 'bg-yellow-500' : 'bg-red-500'}`}>
+                                                    ${data.payment === 'Cash' ? 'bg-green-500' : 'bg-yellow-500'}`}>
                                                 </span>
-                                                {data.status}
+                                                {data.payment}
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-center">
