@@ -20,7 +20,7 @@ export const menu = [
         children: [
             { title: 'Data Produk', url: '/produk' },
             { title: 'Tambah Stok (Restock)', url: '/restock' },
-            { title: 'Penyesuaian Stok', url: '/penyesuaianStok' },
+            // { title: 'Penyesuaian Stok', url: '/penyesuaianStok' },
         ]
     },
 
@@ -31,8 +31,8 @@ export const menu = [
         icon: 'BarChart3',
         children: [
             { title: 'Laporan Penjualan', url: '/lapPenjualan' },
-            { title: 'Laporan Laba Rugi', url: '/lapLaba' },
-            { title: 'Produk Terlaris', url: '/lapTerlaris' },
+            // { title: 'Laporan Laba Rugi', url: '/lapLaba' },
+            // { title: 'Produk Terlaris', url: '/lapTerlaris' },
         ]
     },
     {
