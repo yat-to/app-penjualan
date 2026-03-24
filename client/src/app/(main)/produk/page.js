@@ -111,14 +111,14 @@ export default function Page() {
                                                             onClick={() => { openDetail(data); setOpenDropdownId(null); }}
                                                             className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 transition-colors"
                                                         >
-                                                            <Eye size={16} /> Lihat Data
+                                                            <Eye size={16} /> Detail Product
                                                         </button>
 
                                                         <button
                                                             onClick={() => { openEdit(data); setOpenDropdownId(null); }}
                                                             className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 transition-colors"
                                                         >
-                                                            <Edit size={16} /> Edit Data
+                                                            <Edit size={16} /> Edit Product
                                                         </button>
 
                                                         <hr className="my-1 border-gray-100" />
@@ -127,7 +127,7 @@ export default function Page() {
                                                             onClick={() => { openDeleteModal(data); setOpenDropdownId(null); }}
                                                             className="w-full flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-gray-50 transition-colors"
                                                         >
-                                                            <Trash2 size={16} /> Hapus Data
+                                                            <Trash2 size={16} /> Delete Product
                                                         </button>
                                                     </div>
                                                 </>
@@ -186,133 +186,19 @@ export default function Page() {
                 </div>
 
                 {addModal && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
                         <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
-                            {/* HEADER */}
                             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                                 <h3 className="font-bold text-gray-800 text-lg">
-                                    {selectData ? 'Edit Produk' : 'Tambah Produk Baru'}
+                                    {selectedKategori ? 'Edit Produk' : 'Tambah Produk Baru'}
                                 </h3>
                                 <button onClick={() => setAddModal(false)} className="text-gray-400 hover:text-gray-600">
                                     <X size={20} />
                                 </button>
                             </div>
 
-                            {/* FORM */}
                             <form className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                                 <div className="grid grid-cols-2 gap-4">
-                                    {/* Kategori Select */}
-                                    <div>
-                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Kategori</label>
-                                        <select
-                                            defaultValue={selectData?.kategori_id || ''}
-                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
-                                        >
-                                            <option value="">Pilih Kategori</option>
-                                            <option value="1">Sepatu</option>
-                                            <option value="2">Racket</option>
-                                            <option value="3">Jersey</option>
-                                        </select>
-                                    </div>
-
-                                    {/* Brand Select */}
-                                    <div>
-                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Brand</label>
-                                        <select
-                                            defaultValue={selectData?.brand_id || ''}
-                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
-                                        >
-                                            <option value="">Pilih Brand</option>
-                                            <option value="1">Yonex</option>
-                                            <option value="2">Lining</option>
-                                            <option value="3">Victor</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    {/* Harga Jual */}
-                                    <div>
-                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Harga Jual (Rp)</label>
-                                        <input
-                                            type="number"
-                                            placeholder="0"
-                                            defaultValue={selectData?.harga_jual || ''}
-                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
-                                        />
-                                    </div>
-
-                                    {/* Stok */}
-                                    <div>
-                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Stok Awal</label>
-                                        <input
-                                            type="number"
-                                            placeholder="0"
-                                            defaultValue={selectData?.stok || ''}
-                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Keterangan */}
-                                <div>
-                                    <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Keterangan Produk</label>
-                                    <textarea
-                                        rows="3"
-                                        defaultValue={selectData?.keterangan || ''}
-                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all resize-none"
-                                    ></textarea>
-                                </div>
-
-                                {/* URL Foto */}
-                                <div>
-                                    <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">URL Foto Produk</label>
-                                    <input
-                                        type="text"
-                                        placeholder="https://..."
-                                        defaultValue={selectData?.foto || ''}
-                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
-                                    />
-                                </div>
-
-                                {/* FOOTER BUTTONS */}
-                                <div className="flex gap-3 pt-4 border-t border-gray-50">
-                                    <button
-                                        type="button"
-                                        onClick={() => setAddModal(false)}
-                                        className="flex-1 px-4 py-2.5 border border-gray-200 text-gray-600 rounded-lg text-sm font-bold hover:bg-gray-50 transition-all"
-                                    >
-                                        Batal
-                                    </button>
-                                    <button
-                                        type="submit"
-                                        className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-md shadow-blue-100 transition-all"
-                                    >
-                                        {selectData ? 'Simpan Perubahan' : 'Tambah Produk'}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                )}
-
-                {editModal && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-                        <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
-                            {/* HEADER */}
-                            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-                                <h3 className="font-bold text-gray-800 text-lg">
-                                    Edit Produk
-                                </h3>
-                                <button onClick={() => setEditModal(false)} className="text-gray-400 hover:text-gray-600">
-                                    <X size={20} />
-                                </button>
-                            </div>
-
-                            {/* FORM */}
-                            <form className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
-                                <div className="grid grid-cols-2 gap-4">
-                                    {/* Kategori Select */}
                                     <div>
                                         <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Kategori</label>
                                         <select
@@ -326,7 +212,6 @@ export default function Page() {
                                         </select>
                                     </div>
 
-                                    {/* Brand Select */}
                                     <div>
                                         <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Brand</label>
                                         <select
@@ -342,7 +227,6 @@ export default function Page() {
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
-                                    {/* Harga Jual */}
                                     <div>
                                         <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Harga Jual (Rp)</label>
                                         <input
@@ -353,7 +237,6 @@ export default function Page() {
                                         />
                                     </div>
 
-                                    {/* Stok */}
                                     <div>
                                         <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Stok Awal</label>
                                         <input
@@ -365,7 +248,6 @@ export default function Page() {
                                     </div>
                                 </div>
 
-                                {/* Keterangan */}
                                 <div>
                                     <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Keterangan Produk</label>
                                     <textarea
@@ -375,7 +257,108 @@ export default function Page() {
                                     ></textarea>
                                 </div>
 
-                                {/* URL Foto */}
+                                <div>
+                                    <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Foto</label>
+                                    <input
+                                        type="text"
+                                        placeholder="https://..."
+                                        defaultValue={selectedKategori?.foto || ''}
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
+                                    />
+                                </div>
+
+                                <div className="flex gap-3 pt-4 border-t border-gray-50">
+                                    <button
+                                        type="button"
+                                        onClick={() => setAddModal(false)}
+                                        className="flex-1 px-4 py-2.5 border border-gray-200 text-gray-600 rounded-lg text-sm font-bold hover:bg-gray-50 transition-all"
+                                    >
+                                        Batal
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 shadow-md shadow-blue-100 transition-all"
+                                    >
+                                        {selectedKategori ? 'Simpan Perubahan' : 'Tambah Produk'}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+
+                {editModal && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
+                        <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
+                            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                                <h3 className="font-bold text-gray-800 text-lg">
+                                    Edit Produk
+                                </h3>
+                                <button onClick={() => setEditModal(false)} className="text-gray-400 hover:text-gray-600">
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            <form className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Kategori</label>
+                                        <select
+                                            defaultValue={selectedKategori?.kategori_id || ''}
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
+                                        >
+                                            <option value="">Pilih Kategori</option>
+                                            <option value="1">Sepatu</option>
+                                            <option value="2">Racket</option>
+                                            <option value="3">Jersey</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Brand</label>
+                                        <select
+                                            defaultValue={selectedKategori?.brand_id || ''}
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
+                                        >
+                                            <option value="">Pilih Brand</option>
+                                            <option value="1">Yonex</option>
+                                            <option value="2">Lining</option>
+                                            <option value="3">Victor</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Harga Jual (Rp)</label>
+                                        <input
+                                            type="number"
+                                            placeholder="0"
+                                            defaultValue={selectedKategori?.harga_jual || ''}
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Stok Awal</label>
+                                        <input
+                                            type="number"
+                                            placeholder="0"
+                                            defaultValue={selectedKategori?.stok || ''}
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">Keterangan Produk</label>
+                                    <textarea
+                                        rows="3"
+                                        defaultValue={selectedKategori?.keterangan || ''}
+                                        className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-sm transition-all resize-none"
+                                    ></textarea>
+                                </div>
+
                                 <div>
                                     <label className="block text-[10px] font-black text-gray-400 uppercase mb-1 tracking-wider">URL Foto Produk</label>
                                     <input
@@ -386,11 +369,10 @@ export default function Page() {
                                     />
                                 </div>
 
-                                {/* FOOTER BUTTONS */}
                                 <div className="flex gap-3 pt-4 border-t border-gray-50">
                                     <button
                                         type="button"
-                                        onClick={() => setAddModal(false)}
+                                        onClick={() => setEditModal(false)}
                                         className="flex-1 px-4 py-2.5 border border-gray-200 text-gray-600 rounded-lg text-sm font-bold hover:bg-gray-50 transition-all"
                                     >
                                         Batal
